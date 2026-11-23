@@ -445,5 +445,6 @@
     if (!key || !c.accounts.some(function (a) { return a.key === key; })) key = c.accounts[0].key;
     var h = location.hash.slice(1); if (PAGES[h] || OLY.ext[h]) page = h;
     load(); timer = setInterval(load, 15000);
+    window.addEventListener('load', function () { var h2 = location.hash.slice(1); if ((PAGES[h2] || OLY.ext[h2]) && h2 !== page) { page = h2; render(); } });   // a page script that loaded after the config answer
   });
 })();
